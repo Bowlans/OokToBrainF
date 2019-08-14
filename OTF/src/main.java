@@ -1,5 +1,8 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
@@ -65,6 +68,44 @@ public class main {
 		            chooser.getSelectedFile().getName());
 		    }
 		    
-		    
+	          FileReader fr = null;
+			try {
+				fr = new FileReader(chooser.getSelectedFile());
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}    
+	          int i;    
+	          try {
+				while((i=fr.read())!=-1) {   
+				if((char)i=='.'||(char)i=='!'||(char)i=='?') {
+					//System.out.print((char)i);
+				}else {
+					System.err.print((char)i);
+				}
+				  
+				  
+				  
+				  
+				  
+				  
+				  
+				  
+				  
+				  
+				  
+				  
+				  
+				  
+				  
+				}
+			} catch (IOException e) {
+				e.printStackTrace();
+			}    
+	          try {
+				fr.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}    
 	}
 }
