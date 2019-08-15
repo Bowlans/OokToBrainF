@@ -15,6 +15,7 @@ public class main {
 	JFrame JF;
 	JButton OTB;
 	JButton BTO;
+	String holder="";
 	public static void main(String[] args) {
 		main main = new main();
 		main.JP = new JPanel();
@@ -77,11 +78,13 @@ public class main {
 			}    
 	          int i;    
 	          try {
-				while((i=fr.read())!=-1) {   
+				while((i=fr.read())!=-1) {
+					
 				if((char)i=='.'||(char)i=='!'||(char)i=='?') {
 					//System.out.print((char)i);
+					holder+=(char)i;
 				}else {
-					System.err.print((char)i);
+					//    System.err.print((char)i);
 				}
 				  
 				  
@@ -106,6 +109,9 @@ public class main {
 				fr.close();
 			} catch (IOException e) {
 				e.printStackTrace();
-			}    
+			} 
+	          for (int j = 0; j < holder.length(); j+=2) {
+				System.out.println(holder.substring(j, j+2));
+			}
 	}
 }
